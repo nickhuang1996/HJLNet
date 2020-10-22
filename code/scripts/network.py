@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 import numpy as np
-from ..lib.Loss.Sigmoid import sigmoid_derivative, sigmoid
+from ..lib.Activation.Sigmoid import sigmoid_derivative, sigmoid
 from ..lib.Module.Linear import Linear
 
 class network:
