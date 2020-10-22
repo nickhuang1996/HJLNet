@@ -8,15 +8,13 @@ class DataLoader:
         self.current = 0
 
     def __next__(self):
-        if self.current < len(self.dataset.items):
-            if self.current + self.batch_size <= len(self.dataset.items):
+        if self.current < self.dataset.__len__():
+            if self.current + self.batch_size <= self.dataset.__len__():
                 item = self._concate([self.dataset.__getitem__(index) for index in range(self.current, self.current + self.batch_size)])
-                # item = self._concate(self.dataset.items[self.current: self.current + self.batch_size])
                 self.current += self.batch_size
             else:
-                item = self._concate([self.dataset.__getitem__(index) for index in range(self.current, len(self.dataset.items) - 1)])
-                # item = self._concate(self.dataset.items[self.current: len(self.dataset.items) - 1])
-                self.current = len(self.dataset.items)
+                item = self._concate([self.dataset.__getitem__(index) for index in range(self.current, self.dataset.__len__())])
+                self.current = self.dataset.__len__()
             return item
         else:
             self.current = 0
