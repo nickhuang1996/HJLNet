@@ -62,8 +62,8 @@ class Trainer:
         plt.show()
 
     def save_results(self):
-        plt.savefig(fname=self.result_img_path, figsize=[10, 10])
+        plt.savefig(fname=self.result_img_path)
 
-    # ¼ÆËãÎó²îÖµ
+    # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     def compute_loss(self, output, y):
         return np.mean(np.square(output - y))
